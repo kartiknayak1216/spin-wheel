@@ -1,0 +1,198 @@
+/* General Styles */
+:root {
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+    --body-font: "Poppins", sans-serif;
+    --h1-font-size: 1.75rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.813rem;
+    --font-medium: 500;
+  }
+  
+  /* Container for wheel and image */
+  .game-wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust to fit your layout */
+    margin: auto;
+  }
+  
+  /* Background Image */
+  .background-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure the image fills the container */
+  }
+  
+  /* Wheel Container */
+  .wheel-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Spin Button Style */
+  .spin-btn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at center, rgb(138, 183, 165), rgb(16, 141, 91), rgb(5, 70, 42));
+    border-radius: 50%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.1em;
+    border: 4px solid rgb(207,178,105);
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 2px 4px rgb(207,178,105), 0 6px 20px rgb(207,178,105);
+  }
+  
+  /* Spin Button Arrow */
+  .spin-btn::before {
+    content: '';
+    position: absolute;
+    top: -28px;
+    width: 20px;
+    height: 30px;
+    background: radial-gradient(circle at center, rgb(29, 200, 135), rgb(16, 141, 91));
+    clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+  }
+  
+  /* Wheel Style */
+  .wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #333;
+    overflow: hidden;
+    border-color:rgb(158, 111, 31);
+    box-shadow: 0 0 0 5px rgb(158, 111, 31), 0 0 0 18px rgb(254, 202, 124), 0 0 0 18px #111;
+    transition: transform 5s ease-in-out;
+  }
+  
+  /* Wheel Image */
+  .wheel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale the image to cover the wheel without distortion */
+    border-radius: 50%;
+    z-index: 1; /* Ensure the image is below the .number elements */
+  }
+  
+  /* Number Sections */
+  .number {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(36deg * var(--i)));
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 50%);
+    align-items: center;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  }
+  
+  .number span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(45deg);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block; /* Adjust as needed for layout */
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Optional: adds a shadow to the text */
+    text-align: center;
+    pointer-events: none; /* Prevents text from interfering with interactions */
+  }
+  
+  .text {
+    font-size: 0.75rem; /* Adjust based on screen size */
+  }
+  
+  @media (min-width: 640px) {
+    .text {
+      font-size: 0.875rem; /* Slightly larger text for small to medium screens */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .text {
+      font-size: 1rem; /* Larger text for medium screens and up */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text {
+      font-size: 1.125rem; /* Larger text for larger screens */
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 1200px) {
+    .wheel-container {
+      width: 15rem;
+      height: 15rem;
+    }
+    .number span {
+      top: 45%;
+      left: 52%;
+    }
+  }
+  
+  @media screen and (max-width: 980px) {
+    .wheel-container {
+      width: 10rem;
+      height: 10rem;
+    }
+    .spin-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 0.6rem;
+    }
+    .number span {
+      font-size: 1rem;
+    }
+    .spin-btn::before {
+      height: 20px;
+      width: 10px;
+      top: -18px;
+    }
+  }
+  
